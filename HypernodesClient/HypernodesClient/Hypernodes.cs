@@ -11,8 +11,8 @@ namespace Hyperthetical
 	public class Client
 	{
 
-		public  readonly string baseUrl = "https://localhost:7032";
-		//public readonly string baseUrl = "https://www.hyperthetical.dev";
+		//public  readonly string baseUrl = "https://localhost:7032";
+		public readonly string baseUrl = "https://www.hypertheticalW.dev";
 		private readonly Dictionary<string, Func<List<List<string>>,User,Task>> clientFunctions;
 		public string FundingKey { get; }
 		
