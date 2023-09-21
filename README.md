@@ -105,7 +105,7 @@ We welcome contributions! Contact me at xo@hyperthetical.dev if you want to ask 
 
 ## License
 
-[MIT License](LICENSE.md)
+[MIT License](LICENSE)
 
 ---
 
