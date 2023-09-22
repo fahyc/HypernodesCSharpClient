@@ -25,6 +25,7 @@ Before you can use the Hyperthetical library, you need to install it. Add the Nu
 # Use the following command to install the package
 dotnet add package HypernodesClient
 ```
+If you don't have access to NuGet, you can copy the C# files in [this directory](HypernodesClient/HypernodesClient) directly into your project. This will be more fragile to future changes though. 
 
 ## Quick Start
 
