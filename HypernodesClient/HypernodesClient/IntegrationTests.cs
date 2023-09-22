@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Microsoft.Extensions.Configuration;
+using Xunit;
 
 namespace Hyperthetical.Tests
 {
@@ -6,9 +7,14 @@ namespace Hyperthetical.Tests
 	{
 		private readonly Client _client;
 		private readonly User _user;
-		private const string TestFundingKey = "YOUR_TEST_FUNDING_KEY";
+		private string TestFundingKey;
 
 		public IntegrationTests () {
+			var configuration = new ConfigurationBuilder()
+				.AddJsonFile("secrets.json",optional: false)
+			.Build();
+			string TestFundingKey = configuration["HyperApiKey"];
+
 			_client = new Client(TestFundingKey);
 			_user = new User(_client);
 		}
@@ -20,7 +26,7 @@ namespace Hyperthetical.Tests
 
 		[Fact]
 		public async Task Test_GetAvailableGraphsAsync_ShouldReturnGraphList () {
-			var graphs = await _client.GetAvailableGraphsAsync(TestFundingKey);
+			var graphs = await _client.GetAvailableGraphsAsync(TestFundingKey,"Examples");
 			Assert.NotNull(graphs);
 			Assert.True(graphs.Count > 0);
 		}
