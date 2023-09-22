@@ -1,9 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+		<VersionPrefix>1.0.1</VersionPrefix>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+		<IsPackable>true</IsPackable>
+		<Nullable>enable</Nullable>
     <Title>Hypernodes Client</Title>
     <Company>Hyperthetical</Company>
     <Authors>fahyc</Authors>
@@ -14,6 +16,7 @@
     <RepositoryUrl>https://github.com/fahyc/HypernodesCSharpClient</RepositoryUrl>
     <PackageTags>chatgpt, llm, agents, generative ai</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
