@@ -12,15 +12,15 @@ namespace Hyperthetical
 	{
 
 		//public  readonly string baseUrl = "https://localhost:7032";
-		public readonly string baseUrl = "https://www.hypertheticalW.dev";
-		private readonly Dictionary<string, Func<List<List<string>>,User,Task>> clientFunctions;
+		public readonly string baseUrl = "https://www.hyperthetical.dev";
+		private readonly Dictionary<string, Func<List<List<string>>, User, Task>> clientFunctions;
 		public string FundingKey { get; }
-		
+
 		public Client () {
-			clientFunctions = new Dictionary<string, Func<List<List<string>>, User, Task>> ();
+			clientFunctions = new Dictionary<string, Func<List<List<string>>, User, Task>>();
 		}
 
-		public Client (string fundingKey) : this(){
+		public Client (string fundingKey) : this() {
 			// Here, initialize any internals related to the secret key if needed
 			FundingKey = fundingKey;
 		}
@@ -34,7 +34,7 @@ namespace Hyperthetical
 
 		internal void ExecuteClientFunction (string functionName, List<List<string>> args, User user) {
 			if (clientFunctions.TryGetValue(functionName, out var action)) {
-				action(args,user);
+				action(args, user);
 			}
 			else {
 				Console.Out.WriteLine($"Unknown function: {functionName}");
@@ -224,13 +224,13 @@ namespace Hyperthetical
 		/// <returns></returns>
 		public async Task<bool> SetGraphAsync (string graphName, string username, string? key = null) {
 			// Fetch available graphs
-			if(key == null) {
+			if (key == null) {
 				key = fundingKey;
 			}
 			else {
 				fundingKey = key;
 			}
-			List<GraphNodeData> availableGraphs = await  client.GetAvailableGraphsAsync(key, username);
+			List<GraphNodeData> availableGraphs = await client.GetAvailableGraphsAsync(key, username);
 
 			// Check if the desired graph exists
 			if (availableGraphs.Any(g => g.Name == graphName)) {
@@ -258,7 +258,7 @@ namespace Hyperthetical
 			{ "0", inputConvo },
 			{ "1", new List<string> { this.dataKey } }
 		};
-			if (otherInputs!=null) {
+			if (otherInputs != null) {
 				int index = 2;
 				foreach (List<string> input in otherInputs) {
 					inputs.Add(index.ToString(), input);
